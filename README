@@ -1,0 +1,10 @@
+Software Security Project 2
+Joseph Buchschacher and John Inman 
+Fall 2018
+
+We decided program our project in Python and use the cryptography Python library (https://cryptography.io/en/latest/) which severed as a front end for accessing openssl hash function (https://cryptography.io/en/latest/hazmat/primitives/cryptographic-hashes/?highlight=message%20digest).
+Our program uses passwords stored in plaintext, hashed passwords, and hashed salted passwords.
+
+We found that using longer passwords increases the time it takes to find matching hash values exponentially, but accounts with matching passwords makes the process take less time as they are cracked at the same time. Also they are removed from the tree when cracked which reduces the time taken to traverse the tree later in the program. The addition of a single character salt before hashing the password will increase the time taken to crack the hash values because each account must be attacked seperately.
+
+task1.py and gen_acc_v2 will generate files accounts0, accounts1, accounts2 to store user databases with plaintext passwords, hashed passwords, and hashed salted passwords respectively in csv format. password_cracker_v4 will generate files unsalted_passwords and salted_passwords with the username, plaintext password pair found by brute force attack shown in csv format. Test_results (10 accounts, password length 2-3) and test_results_1 (100 accounts, password length 2-6) display timing infromation from cracking randomly generated users with fixed length passwords
