@@ -180,11 +180,7 @@ def select_file():
 # prompt user to choose an action
 def task1menu():
 	while True:
-		action = input("""Select an action to preform:
-1) Login
-2) Add account
-0) Quit
-""")
+		action = input("Select an action to preform:\n1) Login\n2) Add account\n0) Quit\n")
 		if action == "1":
 			login()
 		elif action == "2":
