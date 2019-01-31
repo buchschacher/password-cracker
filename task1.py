@@ -97,33 +97,6 @@ def login():
 				return
 	print(username + " not found in " + fname)
 
-	# compare account data to input
-	# if False:
-	# 	print(stored_users)
-	# 	if fname == "account0.txt":
-	# 		print("stored password: " + data[1])
-	# 		return
-	# 	elif fname == "account1.txt":
-	# 		print("stored hash: " + data[1])
-	# 		byte_password = password.encode("ascii")
-	# 		digest = hashes.Hash(hashes.SHA256(), backend=openssl.backend)
-	# 		digest.update(byte_password)
-	# 		hash_password = digest.finalize()
-	# 		hash_password = hash_password.hex()
-	# 		print("hashed input password: " + hash_password)
-	# 		return
-	# 	elif fname == "account2.txt":
-	# 		print("stored hash: " + data[1])
-	# 		print("stored salt: " + data[2])
-	# 		salted_password = password + data[2]
-	# 		byte_salted_password = salted_password.encode("ascii")
-	# 		digest = hashes.Hash(hashes.SHA256(), backend=openssl.backend)
-	# 		digest.update(byte_salted_password)
-	# 		hash_salted_password = digest.finalize()
-	# 		hash_salted_password = hash_salted_password.hex()
-	# 		print("hashed input password + salt: " + hash_salted_password)
-	# 		return
-
 def add_user():
 	fname = select_file()
 	f = open(fname, "a+")
@@ -205,11 +178,21 @@ def select_file():
 			print("Invalid input")
 
 # prompt user to choose an action
-while True:
-	action = input("\nSelect an action to preform:\n1) Login\n2) Add account\n")
-	if action == "1":
-		login()
-	elif action == "2":
-		add_user()
-	else:
-		print("Invalid input")
+def task1menu():
+	while True:
+		action = input("""Select an action to preform:
+1) Login
+2) Add account
+0) Quit
+""")
+		if action == "1":
+			login()
+		elif action == "2":
+			add_user()
+		elif action == "0":
+			return
+		else:
+			print("Invalid input")
+
+if __name__ == "__main__":
+	task1menu()
